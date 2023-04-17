@@ -56,8 +56,9 @@ npm install
 
 ```bash
 ngrok http 3000
-Copy the HTTPS forwarding URL (e.g., https://xxxxxxxxxxxx.ngrok.io) and set it as the "Request URL" in the "Event Subscriptions" page of your Slack app configuration.
 ```
+
+Copy the HTTPS forwarding URL (e.g., https://xxxxxxxxxxxx.ngrok.io) and set it as the "Request URL" in the "Event Subscriptions" page of your Slack app configuration.
 
 In the project directory, create a .env file with the following content:
 
