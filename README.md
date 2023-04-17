@@ -23,22 +23,20 @@ Some bot logic also requires the full thread history for context, so the demo co
    - `app_mentions:read` - To receive events when the bot is mentioned.
    - `chat:write` - To send messages as the bot.
    - `channels:history` - To fetch messages in public channels.
-   - `channels:write` - To send messages in public channels.
    - `groups:history` - To fetch messages in private channels.
-   - `groups:write` - To send messages in private channels.
    - `im:history` - To fetch messages in direct message channels.
    - `im:write` - To send messages in direct message channels.
    - `mpim:history` - To fetch messages in multi-person direct message channels.
    - `mpim:write` - To send messages in multi-person direct message channels.
    - `channels:join` - (Optional) To allow the bot to join channels automatically when invited.
-3. Install the app to your workspace and copy the "Bot User OAuth Token" (SLACK_BOT_TOKEN) from the "OAuth & Permissions" page.
+3. Install the app to your workspace and copy the "Bot User OAuth Token" (SLACK_BOT_TOKEN) from the "OAuth & Permissions" page to the .env file.
 4. Navigate to the "Event Subscriptions" page, enable events, and add the following event subscriptions:
    - `message.channels` - To receive messages posted in public channels.
    - `message.groups` - To receive messages posted in private channels.
    - `message.im` - To receive messages posted in direct message channels.
    - `message.mpim` - To receive messages posted in multi-person direct message channels.
    - `app_mention` - To receive events when the bot is mentioned.
-5. Save your changes.
+6. In "Basic Information", copy the signing secret to the .env file.
 
 ### Install Dependencies
 
@@ -58,7 +56,7 @@ npm install
 ngrok http 3000
 ```
 
-Copy the HTTPS forwarding URL (e.g., https://xxxxxxxxxxxx.ngrok.io) and set it as the "Request URL" in the "Event Subscriptions" page of your Slack app configuration.
+Copy the HTTPS forwarding URL (e.g., https://xxxxxxxxxxxx.ngrok.io) and set it as the "Request URL" in the "Event Subscriptions" page of your Slack app configuration. Append /slack/events, e.g., https://xxxxxxxxxxxx.ngrok.io/slack/events
 
 In the project directory, create a .env file with the following content:
 
@@ -106,3 +104,5 @@ Save the current pm2 process list:
 ```bash
 pm2 save
 ```
+
+On the Slack API dashboard, in the "Event Subscriptions", set the "Request URL" to the public IP address or hostname. Append /slack/events, e.g., https://23.44.33.45/slack/events
